@@ -30,6 +30,7 @@ body {
     width: 40px;
     border-radius: 20px;
     position: relative;
+    cursor: pointer;
 }
 
 .menu-btn i {
@@ -45,10 +46,21 @@ body {
 }
 .profile-picture {
     width: 120px;
-    margin: 0 auto;
     height: 120px;
+    margin: 0 auto;
     border-radius: 60px;
+    /* border: 5px solid #273a75; */
     background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0,0,0,.5);
+}
+
+.profile-picture img {
+    height: 100%;
+    object-fit: cover;
 }
 
 .tasks-statistics {
@@ -69,6 +81,11 @@ body {
 
 
 /* Tasks Section */
+.tasks-container {
+    padding: 10px;
+    text-align: center;
+}
+
 
 .input-container {
     margin: 0 auto;
@@ -93,7 +110,7 @@ body {
 .checkmark {
     position: absolute;
     top: 3px;
-    left: -13px;
+    left: -15px;
     width: 18px;
     height: 18px;
     background-color: #eee;
@@ -135,4 +152,31 @@ body {
     /* -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg); */
     transform: rotate(45deg);
+}
+
+/* Tasks list */
+.tasks-list {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 10px;
+    align-items: center;
+    justify-items: center;
+}
+
+.task-icon, .task-description, .task-deadline {
+    cursor: pointer;
+}
+
+.tasks-list h2 {
+    color: #273a75;
+}
+
+.task-icon {
+    background-color: lightgrey;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
