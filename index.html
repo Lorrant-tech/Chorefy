@@ -23,10 +23,51 @@
                 <i class="fa-solid fa-bars" style="color: black;"></i>
             </div>
 
-            <div class="menu-container">
+            <div class="menu-container menu-active">
+                <div class="close-btn">
+                    <i class="fa-solid fa-x" style="color: black;"></i>
+                </div>
 
+                <div class="user-container">
+                    <div class="menu-profile-picture">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Profile picture">
+                    </div>
+                    <div class="user-name">Lara</div>
+                </div>
+
+
+                <ul class="navbar">
+                    <li>
+                        <a href="">
+                            <div class="icon-container"><i class="fa-solid fa-user"></i></div>
+                            Your profile
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="">
+                            <div class="icon-container"><i class="fa-solid fa-people-group"></i></div>
+                            Your teams
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <div class="icon-container"><i class="fa-solid fa-chart-column"></i></div>
+                            Your dashboard
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="">
+                            <div class="icon-container"><i class="fa-solid fa-gear"></i></div>
+                            Settings
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <div class="overlay active"></div>
+
+            <div class="overlay overlay-active"></div>
 
             <div>
                 <img src="assets/logo-chorefy.png" alt="Chorefy logo">
@@ -124,5 +165,6 @@
 
     <script src="scripts/index.js"></script>
     <script src="scripts/task-stats.js"></script>
+    <script src="scripts/menu-btn.js"></script>
 </body>
 </html>
