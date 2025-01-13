@@ -103,6 +103,8 @@ onValue(taskInDB, (snapshot) => {
         <h2>Deadline</h2>
     `;
 
+    let completedTasks = 0;
+
     for (let i = 0; i < tasksListEntries.length; i++) {
         let currentTask = tasksListEntries[i];
 
@@ -111,8 +113,20 @@ onValue(taskInDB, (snapshot) => {
         // console.log(currentTaskTasks);
 
         renderTask(currentTaskId, currentTaskTasks.icon, currentTaskTasks.description, currentTaskTasks.deadline, currentTaskTasks.status);
+
+        if(currentTaskTasks.status === "done") {
+            completedTasks++;
+        }
+
+        completedTasksEl.innerHTML = completedTasks;
+        assignedTasksEl.innerHTML = i + 1;
+        remainingTasksEl.innerHTML = (i + 1) - completedTasks;
     }
 });
+
+const assignedTasksEl = document.getElementById("assigned-tasks");
+const completedTasksEl = document.getElementById("completed-tasks");
+const remainingTasksEl = document.getElementById("remaining-tasks");
 
 async function renderTaskList() {
     try {
@@ -126,6 +140,8 @@ async function renderTaskList() {
                 <h2>Deadline</h2>
             `;
 
+            let completedTasks = 0;
+
             for (let i = 0; i < tasksListEntries.length; i++) {
                 let currentTask = tasksListEntries[i];
 
@@ -134,6 +150,14 @@ async function renderTaskList() {
                 // console.log(currentTaskTasks);
 
                 renderTask(currentTaskId, currentTaskTasks.icon, currentTaskTasks.description, currentTaskTasks.deadline, currentTaskTasks.status);
+
+                if(currentTaskTasks.status === "done") {
+                    completedTasks++;
+                }
+
+                completedTasksEl.innerHTML = completedTasks;
+                assignedTasksEl.innerHTML = i + 1;
+                remainingTasksEl.innerHTML = (i + 1) - completedTasks;
             }
         } else {
             console.log("Nenhum dado encontrado");
