@@ -35,6 +35,11 @@ function renderTask(id, icon, description, deadline) {
     taskListEl.appendChild(deadlineEl);
 }
 
+
+function cutDoneTask() {
+    
+}
+
 onValue(taskInDB, function (snapshot) {
     const tasksListEntries = Object.entries(snapshot.val());
 
@@ -46,6 +51,5 @@ onValue(taskInDB, function (snapshot) {
         // console.log(currentTaskTasks);
 
         renderTask(currentTaskId, currentTaskTasks.icon, currentTaskTasks.description, currentTaskTasks.deadline);
-
     }
 });

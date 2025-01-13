@@ -31,7 +31,8 @@ addModalBtnEl.addEventListener("click", () => {
     push(taskInDB, {
         "description": descriptionEl.value,
         "deadline": deadlineEl.value,
-        "icon": iconEl.value
+        "icon": iconEl.value,
+        "status": "tbd"
     });
 
     clearModalInputs();
