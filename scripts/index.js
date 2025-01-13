@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js"
+import { getDatabase, ref, push, onValue, update, get } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js"
 
 const appSettings = {
     databaseURL: "https://chorefy-7904a-default-rtdb.firebaseio.com/"
@@ -15,7 +15,7 @@ const taskListEl = document.querySelector(".tasks-list");
 function renderTask(id, icon, description, deadline) {
     const iconEl = document.createElement("div");
     iconEl.classList.add("task-icon");
-    iconEl.id = `icon-${id}`
+    iconEl.id = `icon${id}`
     iconEl.innerHTML = `
     <i class="${icon}"></i>
     `;
@@ -23,13 +23,13 @@ function renderTask(id, icon, description, deadline) {
 
     const descriptionEl = document.createElement("div");
     descriptionEl.classList.add ("task-description");
-    descriptionEl.id = `description-${id}`
+    descriptionEl.id = `description${id}`
     descriptionEl.innerHTML = description;
     descriptionEl.addEventListener("click", cutDoneTask);
 
     const deadlineEl = document.createElement("div");
     deadlineEl.classList.add("task-deadline");
-    deadlineEl.id = `deadline-${id}`
+    deadlineEl.id = `deadline${id}`
     deadlineEl.innerHTML = deadline;
     deadlineEl.addEventListener("click", cutDoneTask);
 
@@ -39,9 +39,17 @@ function renderTask(id, icon, description, deadline) {
 }
 
 
-function cutDoneTask() {
+async function cutDoneTask() {
     const elementId = this.id;
     const taskId = elementId.slice(elementId.indexOf("-"));
+
+    const localInDB = ref(database, `tasks/${taskId}`)
+    const clickedTask = await getTaskinDB(localInDB);
+    if (clickedTask.status === "tbd") {
+        update(localInDB, {"status": "done"})
+    } else {
+        update(localInDB, {"status": "tbd"})
+    }
 
     const rowIconEl = document.getElementById(`icon${taskId}`);
 
@@ -49,6 +57,20 @@ function cutDoneTask() {
         rowIconEl.classList.remove("highlight");
     } else {
         rowIconEl.classList.add("highlight");
+    }
+}
+
+async function getTaskinDB(pathReference) {
+    try {
+        const responseTask = await get(pathReference);
+        if(responseTask.exists()) {
+            const clickedTask = responseTask.val();
+            return clickedTask;
+        } else {
+            console.log("Nenhum dado encontrado");
+        }
+    } catch (error) {
+        console.error("Erro ao obter snapshot: ", error)
     }
 }
 
