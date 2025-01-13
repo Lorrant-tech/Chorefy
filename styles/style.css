@@ -31,6 +31,7 @@ body {
     border-radius: 20px;
     position: relative;
     cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,.5);
 }
 
 .menu-btn i {
@@ -61,6 +62,38 @@ body {
 .profile-picture img {
     height: 100%;
     object-fit: cover;
+}
+
+
+.team-name {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 1.250rem;
+    font-weight: bold;
+}
+
+.main-btns-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.main-btn {
+    background-color: #ECE6A9;
+    box-shadow: 0 4px 6px rgba(0,0,0,.5);
+    border: none;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+.main-btn:hover {
+    cursor: pointer;
+}
+
+.main-btn:active {
+    transform: translateY(2px);
+    box-shadow: none;
 }
 
 .tasks-statistics {
@@ -124,6 +157,7 @@ body {
     border-radius: 20px;
     position: relative;
     cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,.5);
 }
 
 .close-btn i {

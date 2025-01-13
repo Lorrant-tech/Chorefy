@@ -1,0 +1,65 @@
+/* Modal */
+.add-task-modal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    min-width: 250px;
+    border-radius: 15px;
+    border: none;
+    padding: 15px;
+    background-color: #ABDFFF;
+
+}
+
+.add-task-modal h2 {
+    text-align: center;
+}
+
+.modal-form input {
+    width: 100%;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 15px;
+    color: rgb(100, 100, 100);
+    text-align: center;
+    caret-color: rgb(200,200,200);
+}
+
+.modal-form input:focus {
+    outline: none;
+    
+    font-weight: 300;
+}
+
+.modal-form label {
+    display: block;
+    margin: 10px 0 5px 0;
+}
+
+.modal-btn-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
+}
+
+.modal-btn {
+    background-color: #ECE6A9;
+    box-shadow: 0 4px 6px rgba(0,0,0,.5);
+    border: none;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    font-weight: bold;
+    font-family: cursive;
+
+    width: 75px;
+}
+
+.modal-btn:hover {
+    cursor: pointer;
+}
+
+.modal-btn:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
