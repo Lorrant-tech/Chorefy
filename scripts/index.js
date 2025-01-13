@@ -19,16 +19,19 @@ function renderTask(id, icon, description, deadline) {
     iconEl.innerHTML = `
     <i class="${icon}"></i>
     `;
+    iconEl.addEventListener("click", cutDoneTask)
 
     const descriptionEl = document.createElement("div");
     descriptionEl.classList.add ("task-description");
     descriptionEl.id = `description-${id}`
     descriptionEl.innerHTML = description;
+    descriptionEl.addEventListener("click", cutDoneTask);
 
     const deadlineEl = document.createElement("div");
     deadlineEl.classList.add("task-deadline");
     deadlineEl.id = `deadline-${id}`
     deadlineEl.innerHTML = deadline;
+    deadlineEl.addEventListener("click", cutDoneTask);
 
     taskListEl.appendChild(iconEl);
     taskListEl.appendChild(descriptionEl);
@@ -37,7 +40,16 @@ function renderTask(id, icon, description, deadline) {
 
 
 function cutDoneTask() {
-    
+    const elementId = this.id;
+    const taskId = elementId.slice(elementId.indexOf("-"));
+
+    const rowIconEl = document.getElementById(`icon${taskId}`);
+
+    if (rowIconEl.classList.contains("highlight")) {
+        rowIconEl.classList.remove("highlight");
+    } else {
+        rowIconEl.classList.add("highlight");
+    }
 }
 
 onValue(taskInDB, function (snapshot) {
