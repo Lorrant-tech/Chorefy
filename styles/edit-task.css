@@ -1,0 +1,109 @@
+/* .overlay-edit-task {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay-edit-task-active {
+    opacity: 1;
+    visibility: visible;
+} */
+
+.edit-task-modal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    min-width: 250px;
+    border-radius: 15px;
+    border: none;
+    padding: 15px;
+    background-color: #ABDFFF;
+
+    text-align: center;
+}
+
+.edit-task-modal h2 {
+    margin-bottom: 10px;
+}
+
+.edit-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    align-items: center;
+    justify-items: center;
+
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    scrollbar-width: none;
+
+    position: relative;
+}
+
+.edit-grid-container h3 {
+    color: #273a75;
+}
+
+.edit-grid-container:after {
+    position: sticky;
+    bottom: 0%;
+    left: 50%;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-bottom: solid #273a75;
+    border-right: solid #273a75;
+    transform: rotate(45deg);
+    display: block;
+}
+
+.edit-task-description:hover, .edit-task-deadline:hover {
+    cursor: pointer;
+}
+
+.edit-selected-task-modal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    min-width: 250px;
+    border-radius: 15px;
+    border: none;
+    padding: 15px;
+    background-color: #ABDFFF;
+}
+
+.edit-selected-task-modal h2 {
+    text-align: center;
+}
+
+.edit-selected-task-modal input {
+    width: 100%;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 15px;
+    color: rgb(100, 100, 100);
+    text-align: center;
+    caret-color: rgb(200,200,200);
+}
+
+.edit-selected-task-modal input:focus {
+    outline: none;
+    
+    font-weight: 300;
+}
+
+.edit-selected-task-modal label {
+    display: block;
+    margin: 10px 0 5px 0;
+}

@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/add-task-modal.css">
     <link rel="stylesheet" href="styles/menu.css">
+    <link rel="stylesheet" href="styles/edit-task.css">
 
 
 </head>
@@ -90,7 +91,7 @@
             <button class="main-btn" id="add-task">
                 Add task
             </button>
-            <button class="main-btn" id="add-task">Edit task</button>
+            <button class="main-btn" id="edit-task">Edit task</button>
         </div>
 
         <div class="tasks-statistics">
@@ -98,6 +99,8 @@
             <h3><span id="completed-tasks"></span> tasks completed</h3>
             <h3 class="item3"><span id="remaining-tasks"></span> tasks remaining</h3>
         </div>
+
+        <div class="overlay-edit-task"></div>
     </div>
 
     <div class="tasks-container">
@@ -136,9 +139,60 @@
         </form>
     </dialog>
 
+    <dialog class="edit-task-modal">
+        <h2>Choose a task</h2>
+
+        <div class="edit-grid-container">
+            <h3>Tasks</h3>
+            <h3>Deadline</h3>
+            <div class="edit-task-description">
+                Make the bed
+            </div>
+            <div class="edit-task-deadline">
+                8:30 a.m.
+            </div>
+
+            <div class="edit-task-description">
+                Clean room
+            </div>
+            <div class="edit-task-deadline">
+                9 a.m.
+            </div>
+        </div>
+
+        <div class="modal-btn-container">
+            <button class="modal-btn"
+            id="modal-edit-cancel" type="button">Cancel</button>
+        </div>
+    </dialog>
+
+    <dialog class="edit-selected-task-modal">
+        <h2>Edit the task</h2>
+        <form action="" class="edit-modal-form">
+            <label for="">Describe it:</label>
+            <input type="text" id="edit-modal-description">
+
+            <label for="">Deadline:</label>
+            <input type="text"
+            id="edit-modal-deadline">
+
+            <label for="">Icon:</label>
+            <input type="text" placeholder="Search..."
+            id="edit-modal-icon">
+
+            <div class="modal-btn-container">
+                <button class="modal-btn" 
+                id="edit-modal-confirm" type="button">Confirm</button>
+
+                <button class="modal-btn"
+                id="edit-modal-cancel" type="button">Cancel</button>
+            </div>
+        </form>
+    </dialog>
 
     <script type="module" src="scripts/index.js"></script>
     <script src="scripts/menu-btn.js"></script>
     <script type="module" src="scripts/modals.js"></script>
+    <script type="module" src="scripts/edit-task.js"></script>
 </body>
 </html>

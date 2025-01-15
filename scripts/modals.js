@@ -1,7 +1,7 @@
 
-import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js"
+import { push } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js"
 
-import { database, taskInDB} from "./index.js"
+import { taskInDB } from "./index.js"
 
 const addTaskBtnEl = document.getElementById("add-task");
 

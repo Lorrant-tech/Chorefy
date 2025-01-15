@@ -1,9 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-import { getDatabase, ref, push, onValue, update, get } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js"
+import { getDatabase, ref, push, onValue, update, get } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
 
 const appSettings = {
     databaseURL: "https://chorefy-7904a-default-rtdb.firebaseio.com/"
-}
+};
 
 const app = initializeApp(appSettings);
 export const database = getDatabase(app);
@@ -12,8 +12,6 @@ export const taskInDB = ref(database, "tasks");
 const taskListEl = document.querySelector(".tasks-list");
 
 const checkboxShowDoneEl = document.getElementById("show-done");
-
-// const inputContainerEl = document.querySelector(".input-container");
 
 checkboxShowDoneEl.addEventListener("change", renderTaskList);
 
@@ -61,7 +59,7 @@ async function cutDoneTask() {
 
     const localInDB = ref(database, `tasks/${taskId}`)
 
-    const clickedTask = await getTaskinDB(localInDB);
+    const clickedTask = await getTaskInDB(localInDB);
 
     const rowIconEl = document.getElementById(`icon${taskId}`);
 
@@ -72,15 +70,9 @@ async function cutDoneTask() {
         update(localInDB, {"status": "tbd"});
         rowIconEl.classList.remove("highlight");
     }
-
-    // if (rowIconEl.classList.contains("highlight")) {
-    //     rowIconEl.classList.remove("highlight");
-    // } else {
-    //     rowIconEl.classList.add("highlight");
-    // }
 }
 
-async function getTaskinDB(pathReference) {
+export async function getTaskInDB(pathReference) {
     try {
         const responseTask = await get(pathReference);
         if(responseTask.exists()) {
@@ -93,6 +85,10 @@ async function getTaskinDB(pathReference) {
         console.error("Erro ao obter task: ", error)
     }
 }
+
+const assignedTasksEl = document.getElementById("assigned-tasks");
+const completedTasksEl = document.getElementById("completed-tasks");
+const remainingTasksEl = document.getElementById("remaining-tasks");
 
 onValue(taskInDB, (snapshot) => {
     const tasksListEntries = Object.entries(snapshot.val());
@@ -110,7 +106,6 @@ onValue(taskInDB, (snapshot) => {
 
         const currentTaskId = currentTask[0];
         const currentTaskTasks = currentTask[1];
-        // console.log(currentTaskTasks);
 
         renderTask(currentTaskId, currentTaskTasks.icon, currentTaskTasks.description, currentTaskTasks.deadline, currentTaskTasks.status);
 
@@ -124,9 +119,6 @@ onValue(taskInDB, (snapshot) => {
     }
 });
 
-const assignedTasksEl = document.getElementById("assigned-tasks");
-const completedTasksEl = document.getElementById("completed-tasks");
-const remainingTasksEl = document.getElementById("remaining-tasks");
 
 async function renderTaskList() {
     try {
