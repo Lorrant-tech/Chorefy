@@ -90,7 +90,7 @@ async function prepareEditSelectedTask(elementId) {
     editDescription.value = elementValues.description;
     editDeadline.value = elementValues.deadline;
     editIcon.value = elementValues.icon;
-    
+
     // Add actions to buttons
     const cancelButtonEl = document.getElementById("edit-modal-cancel");
 
@@ -100,6 +100,11 @@ async function prepareEditSelectedTask(elementId) {
 
     const confirmButtonEl = document.getElementById("edit-modal-confirm");
     confirmButtonEl.addEventListener("click", () => {
-        // update all data acording to inputs
+        update(elementRef, {
+            "description": editDescription.value,
+            "deadline": editDeadline.value,
+            "icon": editIcon.value
+        })
+        editSelectedTaskModalEl.close();
     })
 }
