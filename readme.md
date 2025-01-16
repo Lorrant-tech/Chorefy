@@ -1,6 +1,6 @@
-<div style="display:flex; justify-content:center;">
-    <img src="./assets/logo-chorefy.png">
-</div>
+<h1 align="center">
+    <img src="./assets/logo-chorefy.png" alt="chorefy logo">
+</h1>
 
 # Chorefy
 Chorefy is a web application inteded to help people who live together manage and assign their daily chores fast and easy.
@@ -8,9 +8,9 @@ Chorefy is a web application inteded to help people who live together manage and
 ## <img src="https://img.shields.io/static/v1?label=Status&message=Work in progress&color=orange">
 
 # Table of contents
-1. [Technology choices](#link)
-2. [Design](#link)
-3. [Getting started](#link)
+1. [Technology choices](#technology-choices)
+2. [Design](#design)
+3. [Getting started](#getting-started)
 
 # Technology choices
 HTML
@@ -22,31 +22,31 @@ Javascript
 Firebase
 
 # Design
-The design was entirely made using the free version of Figma.
+The design was entirely made using Figma.
 
 Most of the icons are from FontAwesome plugin and some images were made using AI text to image.
 
 ## Brand / Loading Page
-<div style="display:flex; justify-content:center;">
+<h1 align="center">
     <img src="./design/home.png">
-</div>
+</h1>
 
 ## Main Page
-<div style="display:flex; justify-content:center;">
+<h1 align="center">
     <img src="./design/tasks.png">
-</div>
+</h1>
 
 ## Add Task Modal
-<div style="display:flex; justify-content:center;">
+<h1 align="center">
     <img src="./design/add-task-modal.png">
-</div>
+</h1>
 
 ## Edit Task Choice Modal
-<div style="display:flex; justify-content:center;">
+<h1 align="center">
     <img src="./design/edit-task-modal.png">
-</div>
+</h1>
 
 ## Edit Chosen Task Modal
-<div style="display:flex; justify-content:center;">
+<h1 align="center">
     <img src="./design/edit-task-modal-chosen.png">
-</div>
+</h1>
