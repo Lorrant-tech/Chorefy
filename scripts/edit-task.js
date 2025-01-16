@@ -19,6 +19,7 @@ cancelEditBtnEl.addEventListener("click", () => {
 const editGridContainerEl = document.querySelector(".edit-grid-container");
 
 async function renderEditTaskList() {
+    editGridContainerEl.innerHTML = "";
     try {
         const snapshot = await get(taskInDB);
         if(snapshot.exists()) {
@@ -37,6 +38,7 @@ async function renderEditTaskList() {
                 const currentTaskId = currentTask[0];
                 const currentTaskTasks = currentTask[1];
                 // console.log(currentTaskTasks);
+                // console.log(currentTaskId);
 
                 renderEditTask(currentTaskId, currentTaskTasks.description, currentTaskTasks.deadline);
             }
@@ -57,7 +59,7 @@ function renderEditTask(id, description, deadline) {
     descriptionEl.addEventListener("click", (event) => {
         // abrir o modal de edição
         editTaskModalEl.close();
-        console.log();
+        //console.log(event.target.id);
         prepareEditSelectedTask(event.target.id);
     });
     editGridContainerEl.appendChild(descriptionEl);
@@ -70,7 +72,7 @@ function renderEditTask(id, description, deadline) {
     deadlineEl.addEventListener("click", (event) => {
         // abrir o modal de edição
         editTaskModalEl.close();
-        console.log(event.target.id);
+        //console.log(event.target.id);
         prepareEditSelectedTask(event.target.id);
     });
     editGridContainerEl.appendChild(deadlineEl);
@@ -91,15 +93,22 @@ async function prepareEditSelectedTask(elementId) {
     editDeadline.value = elementValues.deadline;
     editIcon.value = elementValues.icon;
 
+
     // Add actions to buttons
     const cancelButtonEl = document.getElementById("edit-modal-cancel");
 
-    cancelButtonEl.addEventListener("click", () => {
+    const newCancelButtonEl = cancelButtonEl.cloneNode(true);
+    cancelButtonEl.replaceWith(newCancelButtonEl);
+
+    newCancelButtonEl.addEventListener("click", () => {
         editSelectedTaskModalEl.close();
     })
 
     const confirmButtonEl = document.getElementById("edit-modal-confirm");
-    confirmButtonEl.addEventListener("click", () => {
+    const newConfirmButtonEl = confirmButtonEl.cloneNode(true);
+    confirmButtonEl.replaceWith(newConfirmButtonEl);
+
+    newConfirmButtonEl.addEventListener("click", () => {
         update(elementRef, {
             "description": editDescription.value,
             "deadline": editDeadline.value,
