@@ -8,18 +8,11 @@ Chorefy is a web application inteded to help people who live together manage and
 ## <img src="https://img.shields.io/static/v1?label=Status&message=Work in progress&color=orange">
 
 # Table of contents
-1. [Technology choices](#technology-choices)
-2. [Design](#design)
+1. [Design](#design)
+2. [Features](#features)
 3. [Getting started](#getting-started)
+4. [Technology choices](#technology-choices)
 
-# Technology choices
-HTML
-
-CSS
-
-Javascript
-
-Firebase
 
 # Design
 The design was entirely made using Figma.
@@ -50,3 +43,27 @@ Most of the icons are from FontAwesome plugin and some images were made using AI
 <h1 align="center">
     <img src="./design/edit-task-modal-chosen.png">
 </h1>
+
+
+# Features
+
+- [x] Add tasks
+- [ ] Delete tasks
+- [x] Cross off tasks done
+- [x] Account for number of tasks
+  - [x] Assigned
+  - [x] Completed
+  - [x] Remaining
+- [x] Toggle to show or hide done tasks
+- [ ] Create a team to share/manage tasks
+
+
+
+# Technology choices
+HTML
+
+CSS
+
+Javascript
+
+Firebase
