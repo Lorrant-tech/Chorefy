@@ -2,7 +2,6 @@
     <img src="./assets/logo-chorefy.png" alt="chorefy logo">
 </h1>
 
-# Chorefy
 Chorefy is a web application inteded to help people who live together manage and assign their daily chores fast and easy.
 
 ## <img src="https://img.shields.io/static/v1?label=Status&message=Work in progress&color=orange">
@@ -55,7 +54,9 @@ Most of the icons are from FontAwesome plugin and some images were made using AI
   - [x] Completed
   - [x] Remaining
 - [x] Toggle to show or hide done tasks
-- [ ] Create a team to share/manage tasks
+- [ ] Autentication system
+- [ ] Team tasks environment and analytics
+- [ ] Everyday tasks update
 
 
 

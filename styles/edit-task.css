@@ -107,3 +107,8 @@
     display: block;
     margin: 10px 0 5px 0;
 }
+
+.edit-btn-container {
+    flex-wrap: wrap;
+    gap: 15px;
+}

@@ -1,4 +1,4 @@
-import { get, update, ref } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+import { get, update, ref, remove } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
 import { taskInDB, database, getTaskInDB } from "./index.js";
 
 const editTaskBtnEl = document.getElementById("edit-task");
@@ -95,6 +95,7 @@ async function prepareEditSelectedTask(elementId) {
 
 
     // Add actions to buttons
+    // Cancel button
     const cancelButtonEl = document.getElementById("edit-modal-cancel");
 
     const newCancelButtonEl = cancelButtonEl.cloneNode(true);
@@ -104,6 +105,7 @@ async function prepareEditSelectedTask(elementId) {
         editSelectedTaskModalEl.close();
     })
 
+    // Confirm button
     const confirmButtonEl = document.getElementById("edit-modal-confirm");
     const newConfirmButtonEl = confirmButtonEl.cloneNode(true);
     confirmButtonEl.replaceWith(newConfirmButtonEl);
@@ -114,6 +116,17 @@ async function prepareEditSelectedTask(elementId) {
             "deadline": editDeadline.value,
             "icon": editIcon.value
         })
+        editSelectedTaskModalEl.close();
+    })
+
+    // Delete button
+    const deleteButtonEl = document.getElementById("edit-modal-delete");
+
+    const newDeleteButtonEl = deleteButtonEl.cloneNode(true);
+    deleteButtonEl.replaceWith(newDeleteButtonEl);
+
+    newDeleteButtonEl.addEventListener("click", () => {
+        remove(elementRef);
         editSelectedTaskModalEl.close();
     })
 }
