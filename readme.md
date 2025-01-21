@@ -7,11 +7,33 @@ Chorefy is a web application inteded to help people who live together manage and
 ## <img src="https://img.shields.io/static/v1?label=Status&message=Work in progress&color=orange">
 
 # Table of contents
-1. [Design](#design)
-2. [Features](#features)
+1. [Features](#features)
+2. [Design](#design)
 3. [Getting started](#getting-started)
 4. [Technology choices](#technology-choices)
 
+
+# Features
+
+- [x] Add tasks
+- [x] Delete tasks
+- [x] Cross off tasks done
+- [x] Account for number of tasks
+  - [x] Assigned
+  - [x] Completed
+  - [x] Remaining
+- [x] Toggle to show or hide done tasks
+- [ ] Autentication system
+- [ ] Team tasks environment and analytics
+- [ ] Everyday tasks update
+
+## Add tasks and filter done chores (GIF)
+
+![GIF: add and filter done](gifs/Add-task-Show-done.gif)
+
+## Edit tasks and menu button (GIF)
+
+![GIF: edit tasks and menu button](gifs/Edit-task-Menu-button.gif)
 
 # Design
 The design was entirely made using Figma.
@@ -42,22 +64,6 @@ Most of the icons are from FontAwesome plugin and some images were made using AI
 <h1 align="center">
     <img src="./design/edit-task-modal-chosen.png">
 </h1>
-
-
-# Features
-
-- [x] Add tasks
-- [ ] Delete tasks
-- [x] Cross off tasks done
-- [x] Account for number of tasks
-  - [x] Assigned
-  - [x] Completed
-  - [x] Remaining
-- [x] Toggle to show or hide done tasks
-- [ ] Autentication system
-- [ ] Team tasks environment and analytics
-- [ ] Everyday tasks update
-
 
 
 # Technology choices
